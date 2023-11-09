@@ -22,13 +22,14 @@ console.log(bikes);
 //variabile con all'interno un array che ha l'oggeto della bici piú leggera
 const biciLeggera = confrontoPeso(bikes);
 console.log(biciLeggera,"bici piú leggera");
-
+//destructuring
+const {nome,peso} = biciLeggera;
 //inserisco il testo nel dom con scritta la bici piú leggera
 const text = document.getElementById("message");
 text.innerHTML = `
     <h1>Ecco la bici da corsa piú leggera</h1>
-    <h2> Nome: ${biciLeggera.nome}</h2>
-    <h2> Peso: ${biciLeggera.peso}</h2>
+    <h2> Nome: ${nome}</h2>
+    <h2> Peso: ${peso}</h2>
     `
 
 
@@ -36,7 +37,7 @@ text.innerHTML = `
 /**
  * funzione per trovare la bici piú leggera dell'array
  * @param {Array} bikes array di object contenente le bici da corsa
- * @returns {Array} array contentente l'object della bici da corsa piú leggera ( < 10)
+ * @returns {object} object della bici da corsa piú leggera ( < 10)
  */
 function confrontoPeso(bikes) {
     let biciLeggera = bikes[0];
