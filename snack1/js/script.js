@@ -27,8 +27,8 @@ console.log(biciLeggera,"bici piú leggera");
 const text = document.getElementById("message");
 text.innerHTML = `
     <h1>Ecco la bici da corsa piú leggera</h1>
-    <h2> Nome: ${biciLeggera[0].nome}</h2>
-    <h2> Peso: ${biciLeggera[0].peso}</h2>
+    <h2> Nome: ${biciLeggera.nome}</h2>
+    <h2> Peso: ${biciLeggera.peso}</h2>
     `
 
 
@@ -39,7 +39,14 @@ text.innerHTML = `
  * @returns {Array} array contentente l'object della bici da corsa piú leggera ( < 10)
  */
 function confrontoPeso(bikes) {
-    //variabile per il return, che avrá il valore della bici piú leggera
-    const result = bikes.filter((curBike) => curBike.peso < 10 )
-    return result
+    let biciLeggera = bikes[0];
+    bikes.forEach((curBici) =>{
+        if(curBici.peso < biciLeggera.peso){
+            biciLeggera = curBici
+        }
+    })
+    return biciLeggera
+    // //variabile per il return, che avrá il valore della bici piú leggera
+    // const result = bikes.filter((curBike) => curBike.peso < 10 )
+    // return result
 }
